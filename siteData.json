@@ -135,10 +135,34 @@
       "headingKeywords": {}
     },
     {
-      "src": "team/johndoe.md",
+      "src": "team/bipplane.md",
       "title": "John Doe's Project Portfolio Page",
       "headings": {
-        "project-addressbook-level-3": "Project: AddressBook Level 3"
+        "project-tutorrec": "Project: TutorRec"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/flljy940.md",
+      "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-tutorrec": "Project: TutorRec"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/izniy.md",
+      "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-tutorrec": "Project: TutorRec"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "team/nicolaskjh.md",
+      "title": "John Doe's Project Portfolio Page",
+      "headings": {
+        "project-tutorrec": "Project: TutorRec"
       },
       "headingKeywords": {}
     }
