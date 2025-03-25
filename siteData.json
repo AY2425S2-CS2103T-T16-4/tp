@@ -117,6 +117,7 @@
         "deleting-a-person-delete": "Deleting a person : delete",
         "adding-next-lesson-date-for-a-person-nextlesson": "Adding next lesson date for a person : nextlesson",
         "marking-that-a-person-made-payment-pay": "Marking that a person made payment : pay",
+        "resetting-the-payment-statement-of-one-person-or-all-persons-unpay": "Resetting the payment statement of one person or all persons : unpay",
         "clearing-all-entries-clear": "Clearing all entries : clear",
         "exiting-the-program-exit": "Exiting the program : exit",
         "saving-the-data": "Saving the data",
