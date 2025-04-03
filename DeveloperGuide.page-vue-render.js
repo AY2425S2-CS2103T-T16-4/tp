@@ -323,7 +323,7 @@ with(this){return _c('p',[_c('strong',[_v("Extensions")])])}
 with(this){return _c('ul',[_c('li',[_c('p',[_v("2a. The student list is empty.")]),_v(" "),_c('p',[_v("Use case ends.")])])])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('strong',[_v("Use Case U5: Filter students with a lesson on a specified date")])])}
+with(this){return _c('p',[_c('strong',[_v("Use Case U6: Filter students with a lesson on a specified date")])])}
 },function anonymous(
 ) {
 with(this){return _c('p',[_c('strong',[_v("MSS")])])}
@@ -386,6 +386,6 @@ with(this){return _c('h3',{attrs:{"id":"saving-data"}},[_v("Saving data"),_c('a'
 with(this){return _c('ol',[_c('li',[_c('p',[_v("Dealing with corrupted data files")]),_v(" "),_c('ol',[_c('li',[_c('p',[_v("Prerequisites: Simulate a corrupted data file by:")]),_v(" "),_c('ol',[_c('li',[_v("Change directory to the working folder for "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("tutorrec.jar")])]),_v(" "),_c('li',[_v("If the file "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("data/addressbook.json")]),_v(" is not in the working folder, launch the app by double-clicking on jar file. The app should start with the sample contact list.")]),_v(" "),_c('li',[_v("Open the "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("data/addressbook.json")]),_v(" file and delete the "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("name")]),_v(" field of the first entry.")])])]),_v(" "),_c('li',[_c('p',[_v("Launch the app by double-clicking on jar file. The app should start with an empty contact list.")])])])]),_v(" "),_c('li',[_c('p',[_v("Dealing with missing data files")]),_v(" "),_c('ol',[_c('li',[_c('p',[_v("Prerequisites: Simulate a missing data file by:")]),_v(" "),_c('ol',[_c('li',[_v("Change directory to the working folder for "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("tutorrec.jar")])]),_v(" "),_c('li',[_v("If the file "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("data/addressbook.json")]),_v(" exists in the working folder, delete the "),_c('code',{pre:true,attrs:{"class":"hljs inline no-lang"}},[_v("data/addressbook.json")]),_v(" file")])])]),_v(" "),_c('li',[_c('p',[_v("Launch the app by double-clicking ont he jar file. The app should start with the sample contact list.")])])])])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Thu, 3 Apr 2025, 22:10:40 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Thu, 3 Apr 2025, 22:27:25 GMT+8]")])])])}
 }];
   
