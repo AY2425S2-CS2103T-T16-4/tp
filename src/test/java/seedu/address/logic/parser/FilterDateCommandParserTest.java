@@ -6,6 +6,7 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 import static seedu.address.logic.parser.FilterDateCommandParser.MESSAGE_INVALID_DATE;
 import static seedu.address.logic.parser.FilterDateCommandParser.MESSAGE_INVALID_FORMAT;
 import static seedu.address.logic.parser.FilterDateCommandParser.MESSAGE_INVALID_PAST_DATE;
+import static seedu.address.logic.parser.FilterDateCommandParser.MESSAGE_INVALID_YEAR;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -53,12 +54,6 @@ public class FilterDateCommandParserTest {
     }
 
     @Test
-    public void parse_pastDate_throwsParseException() {
-        String pastDate = CURRENT_DATE.minusDays(1).format(java.time.format.DateTimeFormatter.ofPattern("d/M/yyyy"));
-        assertParseFailure(parser, pastDate, MESSAGE_INVALID_PAST_DATE);
-    }
-
-    @Test
     public void parse_invalidDateFormat_throwsParseException() {
         // invalid format
         assertParseFailure(parser, "15-04-2026", MESSAGE_INVALID_FORMAT);
@@ -77,5 +72,11 @@ public class FilterDateCommandParserTest {
 
         // edge case - non-leap year 29 Feb
         assertParseFailure(parser, "29/2/2026", MESSAGE_INVALID_DATE);
+
+        // date in the past
+        assertParseFailure(parser, "15/4/2021", MESSAGE_INVALID_PAST_DATE);
+
+        // date more than 1 year in the future
+        assertParseFailure(parser, "15/4/2030", MESSAGE_INVALID_YEAR);
     }
 }
