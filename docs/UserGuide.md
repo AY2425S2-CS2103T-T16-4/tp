@@ -145,7 +145,7 @@ Format: `help`
 
 <box type="tip" seamless>
 
-**Tip:** F1 (or Fn + F1 for Mac users) can be used to open/close the help window and `Enter` (or Return for Mac users) can be used to copy the User Guide URL.
+**Tip:** `F1` (or `Fn + F1` for Mac users) can be used to open/close the help window and `Enter` (or `Return` for Mac users) can be used to copy the User Guide URL.
 </box>
 
 ### Adding a student : `add`

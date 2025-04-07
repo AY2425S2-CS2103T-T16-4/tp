@@ -630,7 +630,7 @@ testers are expected to do more *exploratory* testing.
 
 ### Deleting a student
 
-1. Deleting a student while all student are being shown
+1. Deleting a student while all student are being shown<br>
    1. Prerequisites: List all students using the `list` command. Multiple students in the list.
    2. Test case: `delete 1`.<br>
       
@@ -644,7 +644,7 @@ testers are expected to do more *exploratory* testing.
    
 <div style="margin-top: 10px;"></div>
 
-2. Deleting a student while the list is filtered with students shown
+2. Deleting a student while the list is filtered with students shown<br>
    1. Prerequisites: Filter students using a filter condition of your choice (eg. `filter-payment unpaid` command to filter students with `Not Paid` payment status).
    2. Test case: `delete 1`.<br>
    
@@ -659,7 +659,7 @@ testers are expected to do more *exploratory* testing.
 
 ### Saving data
 
-1. Dealing with corrupted data files
+1. Dealing with corrupted data files<br>
    1. Prerequisites: Simulate a corrupted data file by:<br>
       * Change directory to the working folder for `tutorrec.jar`.
       * If the file `data/addressbook.json` is not in the working folder, launch the app by typing `java -jar tutorrec.jar`. The app should start with the sample contact list.
@@ -671,7 +671,7 @@ testers are expected to do more *exploratory* testing.
 
 <div style="margin-top: 10px;"></div>
 
-2. Dealing with missing data files
+2. Dealing with missing data files<br>
    1. Prerequisites: Simulate a missing data file by:<br>
       * Change directory to the working folder for `tutorrec.jar`.
       * If the file `data/addressbook.json` exists in the working folder, delete the `data/addressbook.json` file.
@@ -697,8 +697,9 @@ Team size: 4
 
 2. **Improving parameter input flexibility**<br>
     Currently, our input validation for names and addresses enforces strict formatting rules. We plan to enhance this by:<br>
-   * Allowing special characters (e.g. `/`, `.`, `-`, etc.) in names and addresses
-   * Implementing intelligent duplicate detection that ignores whitespace differences (e.g. recognising 'Alex Yeoh' and 'Alex&nbsp;&nbsp;&nbsp;Yeoh' as duplicates).<br>
+    * Allowing special characters (e.g. `/`, `.`, `-`, etc.) in names and addresses
+    * Implementing intelligent duplicate detection that ignores whitespace differences (e.g. recognising 'Alex Yeoh' and 'Alex&nbsp;&nbsp;&nbsp;Yeoh' as duplicates).<br>
+    
     These improvements will give tutors more flexibility when recording student names and addresses, as well as to prevent accidental duplicate entries.
 
 <div style="margin-top: 10px;"></div>
