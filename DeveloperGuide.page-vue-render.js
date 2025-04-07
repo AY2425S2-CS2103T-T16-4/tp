@@ -476,6 +476,6 @@ with(this){return _c('ol',[_c('li',[_c('strong',[_v("Allowing NextLesson to span
 with(this){return _c('ol',{attrs:{"start":"2"}},[_c('li',[_c('p',[_c('strong',[_v("Improving parameter input flexibility")]),_c('br'),_v("\nCurrently, our input validation for names and addresses enforces strict formatting rules. We plan to enhance this by:")]),_v(" "),_c('ul',[_c('li',[_v("Allowing special characters (e.g., '/', '.', '-', etc.) in names and addresses")]),_v(" "),_c('li',[_v("Implementing intelligent duplicate detection that ignores whitespace differences (e.g. recognising 'Alex Yeoh' and 'Alex   Yeoh' as duplicates)."),_c('br')])]),_v(" "),_c('p',[_v("These improvements will give tutors more flexibility when recording student names and addresses, as well as to prevent accidental duplicate entries.")])])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Mon, 7 Apr 2025, 15:24:20 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Mon, 7 Apr 2025, 18:50:50 GMT+8]")])])])}
 }];
   
