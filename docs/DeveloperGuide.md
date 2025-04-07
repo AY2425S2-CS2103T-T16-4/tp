@@ -396,6 +396,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 * 1a. The user supplies invalid input parameter(s).
+
   * 1a1. TutorRec shows an error message for the relevant parameters.
   
     Use case resumes at step 1.
@@ -687,12 +688,9 @@ Team size: 4
 <div style="margin-top: 10px;"></div>
 
 2. **Improving parameter input flexibility**<br>
-    Currently, our input validation for names and addresses enforces strict formatting rules. We plan to enhance this by: 
+    Currently, our input validation for names and addresses enforces strict formatting rules. We plan to enhance this by:<br>
    * Allowing special characters (e.g. `/`, `.`, `-`, etc.) in names and addresses
    * Implementing intelligent duplicate detection that ignores whitespace differences (e.g. recognising 'Alex Yeoh' and 'Alex&nbsp;&nbsp;&nbsp;Yeoh' as duplicates).<br>
-
-    <div style="margin-top: 10px;"></div>
-
     These improvements will give tutors more flexibility when recording student names and addresses, as well as to prevent accidental duplicate entries.
 
 <div style="margin-top: 10px;"></div>
