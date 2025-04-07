@@ -47,6 +47,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 If you ever encounter any issues while setting up the project, please refer to the [_User Guide_](UserGuide.md) for troubleshooting.
 
+<div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Design**
@@ -101,7 +103,7 @@ The sections below give more details of each component.
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2425S2-CS2103T-T16-4/tp/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2425S2-CS2103T-T16-4/tp/tree/master/src/main/resources/view/MainWindow.fxml)
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2425S2-CS2103T-T16-4/tp/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2425S2-CS2103T-T16-4/tp/tree/master/src/main/resources/view/MainWindow.fxml).
 
 The `UI` component,
 
@@ -160,9 +162,9 @@ How the parsing works:
 The `Model` component,
 
 * stores the address book data i.e., all `Person` objects (which are contained in a `UniquePersonList` object).
-* stores the currently 'selected' `Person` objects (e.g. results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.
+* stores the currently 'selected' `Person` objects (e.g. results of a search query) as a separate _filtered_ list which is exposed to outsiders as an unmodifiable `ObservableList<Person>` that can be 'observed' (e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change).
 * stores a `UserPref` object that represents the user's preferences. This is exposed to the outside as a `ReadOnlyUserPref` objects.
-* does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components)
+* does not depend on any of the other three components (as the `Model` represents data entities of the domain, they should make sense on their own without depending on other components).
 
 <box type="info" seamless>
 
@@ -182,7 +184,7 @@ The `Model` component,
 The `Storage` component,
 * can save both address book data and user preference data in JSON format, and read them back into corresponding objects.
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
-* depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
+* depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`).
 
 ### Common classes
 
@@ -215,13 +217,15 @@ The following sequence diagram shows how the `Edit` command works:
     * Pros: Easy to implement.
     * Cons: Modifying an object in place can lead to unintended side effects, making debugging harder.
 
+<div style="margin-top: 10px;"></div>
+
 * **Alternative 2 (current choice):** Make `Person` immutable.
     * Pros: Removes the need for listeners for UI to track person states.
     * Cons: The cost of editing a person may be huge.
 
 ### \[Proposed\] Undo/redo feature
 
-#### Proposed Implementation
+#### Proposed implementation
 
 The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
 
@@ -237,9 +241,13 @@ Step 1. The user launches the application for the first time. The `VersionedAddr
 
 <puml src="diagrams/UndoRedoState0.puml" alt="UndoRedoState0" />
 
+<div style="margin-top: 10px;"></div>
+
 Step 2. The user executes `delete 5` command to delete the 5th student in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
 
 <puml src="diagrams/UndoRedoState1.puml" alt="UndoRedoState1" />
+
+<div style="margin-top: 10px;"></div>
 
 Step 3. The user executes `add n/David …​` to add a new student. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
 
@@ -276,6 +284,8 @@ Similarly, how an undo operation goes through the `Model` component is shown bel
 
 <puml src="diagrams/UndoSequenceDiagram-Model.puml" alt="UndoSequenceDiagram-Model" />
 
+<div style="margin-top: 10px;"></div>
+
 The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
 
 <box type="info" seamless>
@@ -288,13 +298,19 @@ Step 5. The user then decides to execute the command `list`. Commands that do no
 
 <puml src="diagrams/UndoRedoState4.puml" alt="UndoRedoState4" />
 
+<div style="margin-top: 10px;"></div>
+
 Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
 
 <puml src="diagrams/UndoRedoState5.puml" alt="UndoRedoState5" />
 
+<div style="margin-top: 10px;"></div>
+
 The following activity diagram summarises what happens when a user executes a new command:
 
 <puml src="diagrams/CommitActivityDiagram.puml" width="250" />
+
+<div style="margin-top: 10px;"></div>
 
 #### Design considerations:
 
@@ -304,8 +320,9 @@ The following activity diagram summarises what happens when a user executes a ne
   * Pros: Easy to implement.
   * Cons: May have performance issues in terms of memory usage.
 
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
+<div style="margin-top: 10px;"></div>
+
+* **Alternative 2:** Individual command knows how to undo/redo by itself.
   * Pros: Will use less memory (e.g. for `delete`, just save the student being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
@@ -322,8 +339,6 @@ The following activity diagram summarises what happens when a user executes a ne
 * [DevOps guide](DevOps.md)
 
 
-<div style="page-break-after: always;"></div>
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Requirements**
@@ -332,16 +347,16 @@ The following activity diagram summarises what happens when a user executes a ne
 
 **Target user profile**:
 
-* provides private tuition
-* has to manage a significant number of contacts and addresses
-* has to track whether payment has been made for various students
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* provides private tuition.
+* has to manage a significant number of contacts and addresses.
+* has to track whether payment has been made for various students.
+* prefer desktop apps over other types.
+* can type fast.
+* prefers typing to mouse interactions.
+* is reasonably comfortable using CLI apps.
 
 **Value proposition**: Provides quick lookup for student address, contact number, whether last payment
-has been made, next lesson date and time, and subjects covered with student
+has been made, next lesson date and time, and subjects covered with student.
 
 
 ### User stories
@@ -350,7 +365,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                      | I want to …​                                              | So that I can…​                                                                                                |
 |----------|----------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
-| `* * *`  | new user                                     | see usage instructions                                    | refer to instructions when I forget how to use the App                                                         |
+| `* * *`  | new user                                     | see usage instructions                                    | refer to instructions when I forget how to use the application                                                 |
 | `* * *`  | tutor                                        | add a new student                                         | log all my students and their details                                                                          |
 | `* * *`  | tutor                                        | add a student's address                                   | easily look up their address to go over and conduct a lesson                                                   |
 | `* * *`  | tutor                                        | add a student's contact number                            | easily look up their contact number if I need to reach out to them                                             |
@@ -360,7 +375,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | tutor                                        | mark if a student has paid me for the previous lesson     | keep track of whether the student has paid me for their lessons                                                |
 | `* * *`  | tutor                                        | delete a student                                          | remove student entries that I no longer need                                                                   |
 | `* * *`  | tutor                                        | find a student by name                                    | locate details of students without having to go through the entire list                                        |
-| `* *`    | tutor                                        | reset the payment status of all students to unpaid        | reset payment status for all student on a new week or month                                                    |
+| `* *`    | tutor                                        | reset the payment status of all students to unpaid        | reset payment status for all students on a new week or month                                                   |
 | `* *`    | tutor with many students in the address book | sort students by next lesson date                         | see my upcoming lessons in chronological order                                                                 |
 | `* *`    | tutor                                        | filter students with lessons on a specified date          | see my scheduled lessons on the specified date                                                                 |
 | `* *`    | tutor                                        | filter students who have paid for the previous lesson     | easily look up and track the students who have paid for the previous lesson                                    |
@@ -381,6 +396,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 * 1a. The user supplies invalid input parameter(s).
+
   * 1a1. TutorRec shows an error message for the relevant parameters.
   
     Use case resumes at step 1.
@@ -434,6 +450,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2.  TutorRec shows a list of students.
 3.  User requests to mark or unmark payment for a specific student in the list or unmark payment for all students.
 4.  TutorRec marks or unmarks the payment(s).
+
     Use case ends.
 
 **Extensions**
@@ -529,6 +546,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 * 2a. The student list is empty.
+
   Use case ends.
 
 **Use case U10: Filter students are taking specific subject(s)**
@@ -623,6 +641,8 @@ testers are expected to do more *exploratory* testing.
    4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size).<br>
       
       Expected: Similar to previous.<br>
+   
+<div style="margin-top: 10px;"></div>
 
 2. Deleting a student while the list is filtered with students shown
    1. Prerequisites: Filter students using a filter condition of your choice (eg. `filter-payment unpaid` command to filter students with `Not Paid` payment status).
@@ -640,17 +660,25 @@ testers are expected to do more *exploratory* testing.
 ### Saving data
 
 1. Dealing with corrupted data files
-   1. Prerequisites: Simulate a corrupted data file by:
+   1. Prerequisites: Simulate a corrupted data file by:<br>
       * Change directory to the working folder for `tutorrec.jar`.
       * If the file `data/addressbook.json` is not in the working folder, launch the app by typing `java -jar tutorrec.jar`. The app should start with the sample contact list.
       * Open the `data/addressbook.json` file and delete the `name` field of the first entry.
-   2. Launch the app by typing `java -jar tutorrec.jar`. The app should start with an empty contact list.<br>
+      
+    <div style="margin-top: 10px;"></div>
+
+   2. Launch the app by typing `java -jar tutorrec.jar`. The app should start with an empty contact list.
+
+<div style="margin-top: 10px;"></div>
 
 2. Dealing with missing data files
-   1. Prerequisites: Simulate a missing data file by:
+   1. Prerequisites: Simulate a missing data file by:<br>
       * Change directory to the working folder for `tutorrec.jar`.
       * If the file `data/addressbook.json` exists in the working folder, delete the `data/addressbook.json` file.
-   2. Launch the app by typing `java -jar tutorrec.jar`. The app should start with the sample contact list.<br>
+
+    <div style="margin-top: 10px;"></div>
+
+   2. Launch the app by typing `java -jar tutorrec.jar`. The app should start with the sample contact list.
 
 <div style="page-break-after: always;"></div>
 
@@ -658,14 +686,31 @@ testers are expected to do more *exploratory* testing.
 
 ## **Appendix: Planned enhancements**
 
+Team size: 4
+
+<div style="margin-top: 10px;"></div>
+
 1. **Allowing NextLesson to span over more than one day**<br>
     Currently, our NextLesson feature requires the next lesson to start and end on the same day. However, tutors may hold longer tuition workshops that span multiple days or end past midnight. We plan to allow for that in the future.
 
 <div style="margin-top: 10px;"></div>
 
 2. **Improving parameter input flexibility**<br>
-    Currently, our input validation for names and addresses enforces strict formatting rules. We plan to enhance this by: 
+    Currently, our input validation for names and addresses enforces strict formatting rules. We plan to enhance this by:<br>
    * Allowing special characters (e.g. `/`, `.`, `-`, etc.) in names and addresses
    * Implementing intelligent duplicate detection that ignores whitespace differences (e.g. recognising 'Alex Yeoh' and 'Alex&nbsp;&nbsp;&nbsp;Yeoh' as duplicates).<br>
-
     These improvements will give tutors more flexibility when recording student names and addresses, as well as to prevent accidental duplicate entries.
+
+<div style="margin-top: 10px;"></div>
+
+3. **Adding recurring next lessons**<br>
+    We will be adding a feature to allow tutors to schedule recurring lessons, which repeat on a regular basis. Tutors will be able to set
+    the frequency (e.g. weekly, bi-weekly) and duration (number of occurrences or end date) of the recurring lessons, saving time and improving scheduling efficiency.
+
+<div style="margin-top: 10px;"></div>
+
+4. **Tracking overdue payments**<br>
+   We are planning to introduce a comprehensive payment tracking system that will allow tutors to:
+   * Track overdue payments: Automatically identify and flag invoices that are past their due date.
+   * Record last paid date: Easily see when a student last made a payment.
+   * Advanced payment support: Accurately record and manage instances where students make payments towards a lesson in advance.

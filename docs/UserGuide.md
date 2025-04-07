@@ -145,10 +145,10 @@ Format: `help`
 
 <box type="tip" seamless>
 
-**Tip:** F1 can be used to open/close the help window.
+**Tip:** F1 (or Fn + F1 for Mac users) can be used to open/close the help window and `Enter` (or Return for Mac users) can be used to copy the User Guide URL.
 </box>
 
-### Adding a student: `add`
+### Adding a student : `add`
 
 Adds a student to the contact list.
 
@@ -218,18 +218,18 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower s/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing subjects.
 
-### Locating students by name: `find`
+### Locating students by name : `find`
 
 Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]…​`
 
-* The search is case-insensitive. e.g. `hans` will match `Hans`
-* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
+* The search is case-insensitive. e.g. `hans` will match `Hans`.
+* The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`.
 * Only the name of the student is searched.
-* Only full words will be matched e.g. `Han` will not match `Hans`
+* Only full words will be matched e.g. `Han` will not match `Hans`.
 * Students matching at least one keyword will be returned (i.e. `OR` search).
-  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+  e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`.
 
 Examples:
 * `find John` finds all students with 'John' in their name (e.g. `john` and `John Doe`)
@@ -268,10 +268,12 @@ Format: `nextlesson INDEX d/DATE`
 **Input constraints:**<br>
 
 * `INDEX` must be a positive integer 1, 2, 3…​ shown in the displayed student list.
-* `DATE` must be in the format `d/M/yyyy HHmm-HHmm` where:
-  * `d/M/yyyy` is the date (day/month/year)
-  * `HHmm-HHmm` is the time range in 24-hour format (start time - end time)
-  * Example: `15/4/2025 1800-2000` for April 15, 2025, from 6:00 PM to 8:00 PM
+* `DATE` must be:
+  * in the format `d/M/yyyy HHmm-HHmm` where:
+    * `d/M/yyyy` is the date (day/month/year).
+    * `HHmm-HHmm` is the time range in 24-hour format (start time - end time).
+    * Example: `15/4/2025 1800-2000` for April 15, 2025, from 6:00 PM to 8:00 PM.
+  * within 1 year from the current date.
 
 </box>
 
@@ -301,7 +303,7 @@ Format: `sort`
 
 ### Marking that a student made payment : `pay`
 
-Marks the specified student as PAID to indicate that payment has been made.
+Marks the specified student as `PAID` to indicate that payment has been made.
 
 Format: `pay INDEX`
 
@@ -313,17 +315,17 @@ Format: `pay INDEX`
 
 </box>
 
-* Marks the student at the specific `INDEX` as PAID to indicate that payment has been made by the student.
+* Marks the student at the specific `INDEX` as `PAID` to indicate that payment has been made by the student.
 
 Examples:
-* `find David` followed by `pay 1` marks the 1st student in the results of the `find` command.
-* `list` followed by `pay 2` marks the 2nd student as PAID in the contact list. (Paid status is now GREEN)
+* `find David` followed by `pay 1` marks the 1st student in the results of the `find` command as `PAID`.
+* `list` followed by `pay 2` marks the 2nd student as `PAID` in the contact list. (Paid status is now GREEN)
 
 <img src="images/listPayResult.png" alt="result for 'list pay 2'" width="600px" style="margin-bottom: 10px;margin-top: 10px" /><br>
 
-### Resetting the payment statement of one student or all students : `unpay`
+### Resetting the payment status of one student or all students : `unpay`
 
-Resets the specified student's payment status to NOT PAID, or resets payment statuses for all students at once.
+Resets the specified student's payment status to `NOT PAID`, or resets payment statuses for all students at once.
 
 Format: `unpay INDEX` or `unpay all`
 
@@ -335,13 +337,13 @@ Format: `unpay INDEX` or `unpay all`
 
 </box>
 
-* Resets the payment status of the student at the specified `INDEX` to NOT PAID.
-* Alternatively, using `unpay all` will reset the payment statuses of all students in the displayed list to NOT PAID.
+* Resets the payment status of the student at the specified `INDEX` to `NOT PAID`.
+* Alternatively, using `unpay all` will reset the payment statuses of all students in the displayed list to `NOT PAID`.
 
 Examples:
-* `list` followed by `unpay 2` resets the payment status of the 2nd student in the contact list to NOT PAID.
-* `find David` followed by `unpay 1` resets the payment status of the 1st student in the results of the `find` command.
-* `unpay all` resets payment statuses for everyone in the current contact list.
+* `list` followed by `unpay 2` resets the payment status of the 2nd student in the contact list to `NOT PAID`.
+* `find David` followed by `unpay 1` resets the payment status of the 1st student in the results of the `find` command to `NOT PAID`.
+* `unpay all` resets payment statuses for everyone in the current contact list to `NOT PAID`.
 
 ### Filtering students by lesson date : `filter-date`
 
@@ -353,8 +355,11 @@ Format: `filter-date DATE`
 
 **Input constraints:**<br>
 
-* `DATE` must be in `d/M/yyyy` format (e.g. `15/4/2025`), containing only numbers and the `/` character. Letters or other characters are not allowed.
-
+* `DATE` must be:
+    * in the format `d/M/yyyy` where:
+        * `d/M/yyyy` is the date (day/month/year).
+        * Example: `15/4/2025` for April 15, 2025.
+    * within 1 year from the current date.
 </box>
 
 Example:
@@ -375,8 +380,8 @@ Format: `filter-payment STATUS`
 </box>
 
 Examples:
-* `filter-payment paid` shows a list of all students who have PAID.
-* `filter-payment UNPAID` shows a list of all students who have NOT PAID.
+* `filter-payment paid` shows a list of all students who have `PAID`.
+* `filter-payment UNPAID` shows a list of all students who have `NOT PAID`.
 
 ### Filtering students by subject : `filter-subject`
 
@@ -398,9 +403,9 @@ Format: `filter-subject SUBJECT [MORE_SUBJECTS]…​`
 * The subject name must be exact - partial matches won't work (e.g. `mat` won't find students taking `math`).
 
 Examples:
-* `filter-subject math` shows a list of all students taking Math
-* `filter-subject math physics` shows a list of all students taking either Math or Physics or both
-* `filter-subject MATH` shows a list of all students taking Math (case-insensitive)
+* `filter-subject math` shows a list of all students taking `Math`
+* `filter-subject math physics` shows a list of all students taking either `Math` or `Physics` or both
+* `filter-subject MATH` shows a list of all students taking `Math` (case-insensitive)
 
 ### Clearing all students : `clear`
 
@@ -473,7 +478,7 @@ Furthermore, certain edits can cause TutorRec to behave in unexpected ways (e.g.
 
 
 **Q**: How do I transfer my data to another computer?<br>
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous TutorRec home folder.
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the `addressbook.json` file that contains TutorRec data from your previous computer.
 
 **Q**: Can I use TutorRec on multiple devices simultaneously?<br>
 **A**: TutorRec is designed as a desktop application for individual use. Using the same data file across multiple devices simultaneously may cause data conflicts or corruption.

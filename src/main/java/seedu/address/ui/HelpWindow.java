@@ -127,7 +127,7 @@ public class HelpWindow extends UiPart<Stage> {
 
         Timeline timeline = new Timeline(new KeyFrame(
             Duration.seconds(1),
-            event -> copyButton.setText("Copy URL (Enter)")
+            event -> copyButton.setText("Copy URL (Enter/Return)")
         ));
         timeline.setCycleCount(1);
         timeline.play();
