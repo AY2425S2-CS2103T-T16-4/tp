@@ -47,6 +47,8 @@ Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 If you ever encounter any issues while setting up the project, please refer to the [_User Guide_](UserGuide.md) for troubleshooting.
 
+<div style="page-break-after: always;"></div>
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Design**
@@ -336,8 +338,6 @@ The following activity diagram summarises what happens when a user executes a ne
 * [Configuration guide](Configuration.md)
 * [DevOps guide](DevOps.md)
 
-
-<div style="page-break-after: always;"></div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -641,6 +641,8 @@ testers are expected to do more *exploratory* testing.
    4. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size).<br>
       
       Expected: Similar to previous.<br>
+   
+<div style="margin-top: 10px;"></div>
 
 2. Deleting a student while the list is filtered with students shown
    1. Prerequisites: Filter students using a filter condition of your choice (eg. `filter-payment unpaid` command to filter students with `Not Paid` payment status).
@@ -658,18 +660,24 @@ testers are expected to do more *exploratory* testing.
 ### Saving data
 
 1. Dealing with corrupted data files
-   1. Prerequisites: Simulate a corrupted data file by:
+   1. Prerequisites: Simulate a corrupted data file by:<br>
       * Change directory to the working folder for `tutorrec.jar`.
       * If the file `data/addressbook.json` is not in the working folder, launch the app by typing `java -jar tutorrec.jar`. The app should start with the sample contact list.
       * Open the `data/addressbook.json` file and delete the `name` field of the first entry.
       
+    <div style="margin-top: 10px;"></div>
+
    2. Launch the app by typing `java -jar tutorrec.jar`. The app should start with an empty contact list.
 
+<div style="margin-top: 10px;"></div>
+
 2. Dealing with missing data files
-   1. Prerequisites: Simulate a missing data file by:
+   1. Prerequisites: Simulate a missing data file by:<br>
       * Change directory to the working folder for `tutorrec.jar`.
       * If the file `data/addressbook.json` exists in the working folder, delete the `data/addressbook.json` file.
-      
+
+    <div style="margin-top: 10px;"></div>
+
    2. Launch the app by typing `java -jar tutorrec.jar`. The app should start with the sample contact list.
 
 <div style="page-break-after: always;"></div>
