@@ -20,6 +20,7 @@ public class FilterDateCommandParser implements Parser<FilterDateCommand> {
     public static final String MESSAGE_INVALID_DATE =
             "Invalid date entered. Please ensure you have entered a valid date.";
     public static final String MESSAGE_INVALID_PAST_DATE = "Filter date cannot be in the past.";
+    public static final String MESSAGE_INVALID_YEAR = "Filter date must be less than 1 year from now. ";
     private static final String DATE_REGEX = "(\\d{1,2})/(\\d{1,2})/(\\d{4})";
     private static final LocalDate CURRENT_DATE = LocalDate.now();
 
@@ -56,6 +57,10 @@ public class FilterDateCommandParser implements Parser<FilterDateCommand> {
 
             if (filterNextLessonDate.isBefore(CURRENT_DATE)) {
                 throw new ParseException(MESSAGE_INVALID_PAST_DATE, new IllegalArgumentException());
+            }
+
+            if (filterNextLessonDate.isAfter(CURRENT_DATE.plusYears(1))) {
+                throw new ParseException(MESSAGE_INVALID_YEAR, new IllegalArgumentException());
             }
 
             return new NextLessonEqualsDatePredicate(filterNextLessonDate);
