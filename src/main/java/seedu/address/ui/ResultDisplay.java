@@ -21,7 +21,6 @@ public class ResultDisplay extends UiPart<Region> {
      */
     public ResultDisplay() {
         super(FXML);
-        resultDisplay.setWrapText(true);
         resultDisplay.addEventFilter(javafx.scene.input.KeyEvent.KEY_PRESSED, event -> {
             if (event.isControlDown() && event.getCode() == javafx.scene.input.KeyCode.BACK_SPACE) {
                 event.consume();
