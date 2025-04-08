@@ -64,11 +64,11 @@ Encountered some terms you don't understand? Check out our [Glossary](#glossary)
 
     <img src="images/commandBox.png" alt="command box" width="600px" style="margin-bottom: 10px;margin-top: 10px" /><br>
 
-   * `list` → Shows all your students
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` → Adds a new student
-   * `pay 1` → Marks the 1st student as PAID
-   * `nextlesson 1 d/15/4/2025 0900-1030` → Sets the next lesson for 1st student
-   * `exit` → Closes the application (your data is automatically saved)
+   * `list` shows all your students.
+   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` adds a new student.
+   * `pay 1` marks the 1st student as `PAID`.
+   * `nextlesson 1 d/15/4/2025 0900-1030` sets the next lesson for 1st student.
+   * `exit` closes the application (your data is automatically saved).
 
 <div style="margin-top: 10px;"></div>
 
@@ -76,7 +76,7 @@ Encountered some terms you don't understand? Check out our [Glossary](#glossary)
 
 <box type="tip" seamless>
 
-**Tip:** TutorRec will tell you if your command fails to be executed properly in the blank area right below the command box.
+**Tip:** TutorRec will tell you if your command fails to be executed properly in the **result window**.
 </box>
 
 <div style="page-break-after: always;"></div>
@@ -145,7 +145,7 @@ Format: `help`
 
 <box type="tip" seamless>
 
-**Tip:** `F1` (or `Fn + F1` for Mac users) can be used to open/close the help window and `Enter` (or `Return` for Mac users) can be used to copy the User Guide URL.
+**Tip:** `F1` (or `Fn + F1` for Mac users) can be used to open/close the help window and `Enter` (or `Return` for Mac users) can be used to copy the user guide URL.
 </box>
 
 ### Adding a student : `add`
