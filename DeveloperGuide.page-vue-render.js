@@ -494,6 +494,6 @@ with(this){return _c('ol',{attrs:{"start":"3"}},[_c('li',[_c('strong',[_v("Addin
 with(this){return _c('ol',{attrs:{"start":"4"}},[_c('li',[_c('strong',[_v("Tracking overdue payments")]),_c('br'),_v("\nWe are planning to introduce a comprehensive payment tracking system that will allow tutors to:\n"),_c('ul',[_c('li',[_v("Track overdue payments: Automatically identify and flag invoices that are past their due date.")]),_v(" "),_c('li',[_v("Record last paid date: Easily see when a student last made a payment.")]),_v(" "),_c('li',[_v("Advanced payment support: Accurately record and manage instances where students make payments towards a lesson in advance.")])])])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Tue, 8 Apr 2025, 1:48:06 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.6.0")]),_v(", generated on Tue, 8 Apr 2025, 10:32:17 GMT+8]")])])])}
 }];
   
