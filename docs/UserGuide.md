@@ -515,7 +515,7 @@ Furthermore, certain edits can cause TutorRec to behave in unexpected ways (e.g.
 | **Command Prompt/Terminal**        | The basic text program on your computer that lets you type instructions.                              |
 | **Data file**                      | The file where TutorRec stores all your student information.                                          |
 | **Desktop application**            | A program you install directly on your computer (not a website).                                      |
-| **Domain** (in email context)      | The part after @ in an email address (like gmail.com or hotmail.com).                                 |
+| **Domain (in email context)**      | The part after @ in an email address (like gmail.com or hotmail.com).                                 |
 | **Extraneous parameters**          | Extra information you type that the app doesn't need and will ignore.                                 |
 | **GUI (Graphical User Interface)** | The visual part of TutorRec that you see and click on (buttons, lists, etc.).                         |
 | **Hard disk**                      | Your computer's storage space where files are saved.                                                  |
